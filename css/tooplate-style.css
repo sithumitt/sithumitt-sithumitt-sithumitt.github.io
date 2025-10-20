@@ -13,6 +13,13 @@ body {
 	overflow-x: hidden;
 }
 
+/* Global responsive image rules */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
 a, button {
 	transition: all 0.3s ease;
 	color: #FFFFFF;
@@ -31,7 +38,7 @@ a:focus {
 	background: transparent;
 	display: flex;
 	align-items: center;
-	background-size: contain;
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -218,6 +225,212 @@ h5 {
 	margin-left: auto;
 }
 
+/* Mobile-first responsive improvements */
+@media screen and (max-width: 767px) {
+	.container {
+		float: none;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	
+	.parallax-window {
+		background-attachment: scroll !important;
+		min-height: 70vh;
+	}
+	
+	.tm-page-2-content {
+		padding: 20px 10px;
+	}
+	
+	.tm-bg-white-transparent {
+		max-width: 95%;
+		margin: 10px auto;
+		padding: 20px;
+	}
+	
+	.tm-bg-white-transparent-page3 {
+		position: static;
+		transform: none;
+		max-width: 95%;
+		margin: 20px auto;
+		padding: 20px;
+	}
+	
+	.tm-page-3-content {
+		padding: 20px 10px;
+		min-height: auto;
+	}
+	
+	.tm-vertical-slider-left,
+	.tm-vertical-slider-right {
+		height: auto;
+		min-height: 300px;
+	}
+	
+	.tm-slide-item-left,
+	.tm-slide-item-right {
+		position: static;
+		opacity: 1;
+		transform: none;
+		width: 100%;
+		max-width: none;
+		margin-bottom: 20px;
+	}
+	
+	.tm-product-image {
+		height: auto;
+		max-height: 300px;
+	}
+	
+	.tm-slider-img {
+		height: auto;
+		max-height: 200px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	.tm-img-container {
+		width: 95%;
+		padding: 15px 0;
+	}
+	
+	.tm-address-box {
+		padding-left: 0;
+		padding-top: 20px;
+		text-align: center;
+	}
+	
+	.tm-form-section {
+		padding-top: 60px;
+		padding-bottom: 80px;
+	}
+	
+	.tm-btn-submit {
+		width: 100%;
+		padding: 15px;
+		font-size: 1.2rem;
+		margin-top: 20px;
+	}
+	
+	.form-control {
+		font-size: 16px; /* Prevents zoom on iOS */
+		padding: 12px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	body {
+		font-size: 16px;
+	}
+	
+	.parallax-window {
+		background-attachment: scroll !important;
+		min-height: 60vh;
+	}
+	
+	.tm-gold-title {
+		font-size: 2.5rem;
+		letter-spacing: 0.5px;
+		padding: 10px;
+		line-height: 1.2;
+	}
+	
+	.tm-page-1-title {
+		padding: 10px;
+	}
+	
+	.tm-page-2-content {
+		padding: 15px 5px;
+	}
+	
+	.tm-bg-white-transparent {
+		max-width: 98%;
+		margin: 5px auto;
+		padding: 15px;
+	}
+	
+	.tm-bg-white-transparent h2 {
+		font-size: 1.5rem;
+	}
+	
+	.tm-bg-white-transparent b {
+		font-size: 0.9rem;
+		line-height: 1.4;
+	}
+	
+	.tm-page-3-content {
+		padding: 10px 5px;
+	}
+	
+	.tm-bg-white-transparent-page3 {
+		max-width: 98%;
+		margin: 10px auto;
+		padding: 15px;
+	}
+	
+	.tm-bg-white-transparent-page3 h5 {
+		font-size: 1.5rem;
+		padding-left: 0;
+	}
+	
+	.tm-bg-white-transparent-page3 p {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+	
+	.tm-vertical-slider-left,
+	.tm-vertical-slider-right {
+		height: auto;
+		min-height: 250px;
+	}
+	
+	.tm-product-image {
+		max-height: 250px;
+	}
+	
+	.tm-slider-img {
+		height: auto;
+		max-height: 150px;
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+	
+	.tm-img-container {
+		width: 98%;
+		padding: 10px 0;
+	}
+	
+	.tm-address-box {
+		margin-bottom: 30px;
+		font-size: 0.9rem;
+	}
+	
+	.tm-form-section {
+		padding-top: 40px;
+		padding-bottom: 60px;
+	}
+	
+	.tm-btn-submit {
+		font-size: 1.1rem;
+		padding: 12px;
+	}
+	
+	.slick-prev,
+	.slick-next {
+		width: 35px;
+		height: 35px;
+		font-size: 16px;
+	}
+	
+	.slick-prev {
+		left: 5px;
+	}
+	
+	.slick-next {
+		right: 5px;
+	}
+}
+
 .tm-btn-block {
 	display: block;
 }
@@ -265,8 +478,8 @@ h5 {
 	padding-left: 10px;
 	padding-right: 10px;
 	width: 100%;
-	height: 250px;
-	object-fit: cover;
+	height: auto;
+	object-fit: contain;
 	border-radius: 8px;
 	transition: transform 0.3s ease;
 }
@@ -401,8 +614,8 @@ h5 {
 
 .tm-product-image {
 	width: 100%;
-	height: 400px;
-	object-fit: cover;
+	height: auto;
+	object-fit: contain;
 	border-radius: 15px;
 	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
@@ -538,11 +751,13 @@ h5 {
 	.tm-slider-img {
 		padding-left: 5px;
 		padding-right: 5px;
-		height: 200px;
+		height: auto;
+		max-height: 200px;
 	}
 	.tm-vertical-slider-left,
 	.tm-vertical-slider-right {
-		height: 400px;
+		height: auto;
+		min-height: 400px;
 	}
 	.tm-slide-item-left,
 	.tm-slide-item-right {
@@ -550,109 +765,11 @@ h5 {
 		max-width: 450px;
 	}
 	.tm-product-image {
-		height: 300px;
+		height: auto;
+		max-height: 300px;
 	}
 
 	.tm-address-box { padding-left: 10px; }
 }
 
-@media screen and (max-width: 767px) {
-	.parallax-window:first-of-type {
-		background-size: contain;
-		background-position: center top;
-	}
-	.tm-gold-title {
-		font-size: 3.5rem;
-		letter-spacing: 1px;
-	}
-	.tm-page-1-title-lower {
-		padding: 40px 20px;
-	}
-	.tm-page-2-row {
-		flex-direction: column;
-		align-items: center;
-	}
-	.tm-bg-white-transparent {
-		max-width: 90%;
-		margin: 10px;
-	}
-	.tm-page-3-content {
-		padding: 10px;
-	}
-	.tm-bg-white-transparent-page3 {
-		max-width: 60%;
-		padding: 25px;
-		right: 5%;
-	}
-	.tm-slider-img {
-		height: 180px;
-		padding-left: 3px;
-		padding-right: 3px;
-	}
-	.tm-img-container {
-		width: 95%;
-		padding: 15px 0;
-	}
-	.tm-address-box {
-		padding-left: 0;
-		padding-top: 40px;
-	}
-	.tm-form-section {
-		padding-top: 80px;
-    	padding-bottom: 100px;
-	}
-}
 
-@media screen and (max-width: 540px) {
-	.parallax-window:first-of-type {
-		background-size: contain;
-		background-position: center top;
-		min-height: 80vh;
-	}
-	.tm-gold-title {
-		font-size: 2.5rem;
-		letter-spacing: 0.5px;
-		padding: 10px;
-	}
-	.tm-page-1-title-lower {
-		padding: 30px 15px;
-	}
-	.tm-page-2-content {
-		padding: 20px 10px;
-	}
-	.tm-bg-white-transparent {
-		max-width: 95%;
-		margin: 5px;
-		padding: 20px;
-	}
-	.tm-page-3-content {
-		padding: 5px;
-	}
-	.tm-vertical-slider-left,
-	.tm-vertical-slider-right {
-		height: 350px;
-	}
-	.tm-slide-item-left,
-	.tm-slide-item-right {
-		width: 98%;
-		max-width: 350px;
-	}
-	.tm-product-image {
-		height: 250px;
-	}
-	.tm-slider-img {
-		height: 150px;
-		padding-left: 2px;
-		padding-right: 2px;
-	}
-	.tm-img-container {
-		width: 98%;
-		padding: 10px 0;
-	}
-	.tm-address-box {
-		margin-bottom: 50px;
-	}
-	.tm-page-4-content { 
-		margin-bottom: 50px;
-	}
-}

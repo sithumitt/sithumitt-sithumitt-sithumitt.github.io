@@ -148,23 +148,16 @@ https://www.tooplate.com/view/2096-individual
               </div>
               <div class="col-lg-8 col-md-6 col-xs-12">
                 <div class="tm-address-box">
-                  <p>Please visit <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">our contact page</a> for more information about simple contact form to send email to your inbox. Maecenas condimentum tincidunt leo. Paesent scelerisque erat placerat tempus laoreet. </p>
+                  <p>please visit our official sites to know more about us.Thank You</p>
                   <br>
                   <address>
-                    <b>Our Address</b><br>
-                    <br>
-                    440-660 Proin mauris enim,<br>
-                    dignissim sit amet ligula id,<br>
-                    finibus tempus erat 10200
+                    Anurdhapura , Sri Lanka
                   </address>
                 </div>
               </div>
             </div>
 
-            <div class="footer">
-              <p>Copyright © 2018 Your Company
-                . Designed by <a rel="nofollow" href="https://www.tooplate.com" target="_parent">Tooplate</a></p>
-              </div>
+            
             </div>
             
           </div>
@@ -202,22 +195,22 @@ https://www.tooplate.com/view/2096-individual
                     autoplaySpeed: 3000,
                     pauseOnHover: true,
                     arrows: true,
-                    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-                    nextArrow: '<button type="button" class="slick-next">Next</button>'
+                    prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"></button>',
+                    nextArrow: '<button type="button" class="slick-next" aria-label="Next"></button>'
                   });
                 }
                 else {
                  slider.slick({
                   dots: true,
                   infinite: true,
-                  slidesToShow: 2,
+                  slidesToShow: 1,
                   slidesToScroll: 1,
                   autoplay: true,
                   autoplaySpeed: 3000,
                   pauseOnHover: true,
                   arrows: true,
-                  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-                  nextArrow: '<button type="button" class="slick-next">Next</button>'
+                  prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"></button>',
+                  nextArrow: '<button type="button" class="slick-next" aria-label="Next"></button>'
                 });
                }
              }
@@ -246,10 +239,40 @@ https://www.tooplate.com/view/2096-individual
                setInterval(nextSlide, 4000); // Change slide every 4 seconds
              }
 
+             // Disable parallax on mobile for better performance
+             function initParallax() {
+               var isSmall = $(window).width() < 768;
+               var $sections = $('.parallax-window');
+
+               if (isSmall) {
+                 // Disable parallax on mobile
+                 $sections.each(function () {
+                   var $el = $(this);
+                   var src = $el.data('image-src');
+                   if (src) {
+                     $el.css({
+                       backgroundImage: 'url(' + src + ')',
+                       backgroundAttachment: 'scroll'
+                     });
+                   }
+                 });
+                 // Destroy parallax plugin if available
+                 if (typeof $sections.parallax === 'function') {
+                   try { $sections.parallax('destroy'); } catch (e) {}
+                 }
+               } else {
+                 // Re-init parallax on larger screens
+                 if (typeof $sections.parallax === 'function') {
+                   try { $sections.parallax(); } catch (e) {}
+                 }
+               }
+             }
+
              $(document).ready(function(){
 
               setCarousel();
               initVerticalSlider();
+              initParallax();
               $('.tm-img-slider').magnificPopup({
                 delegate: 'a', // child items selector, by clicking on it popup will open
                 type: 'image'
@@ -259,6 +282,7 @@ https://www.tooplate.com/view/2096-individual
 
               $(window).resize(function() {
                 setCarousel();
+                initParallax();
               });
             });
 
